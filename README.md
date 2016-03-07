@@ -40,7 +40,7 @@ function fnMyComponent(register) {
 }
 ```
 
-For more elaborate implementations, see [examples](tree/master/examples) directory
+For more elaborate implementations, see [examples](examples) directory
 
 ## How `modreg` works
 
@@ -75,7 +75,7 @@ Installs function `fn` into the current manager.
 The `fn` function will receive a **register** `function` argument,
   that can be used to register `keys`.
 
-View example in [examples/demo-service/manager.js](blob/master/examples/demo-service/manager.js#L10)
+View example in [examples/demo-service/manager.js](examples/demo-service/manager.js#L10)
 
 #### Example
 ```javascript
@@ -93,8 +93,8 @@ The returned `Promise` will:
 * `resolve` with a **registration**
   object argument, if the key has been successfully registered.
 
-See [examples/demo-service/services/service-example-one.js](blob/master/examples/demo-service/services/service-example-one.js) or
-[examples/demo-service/services/service-example-two.js](blob/master/examples/demo-service/services/service-example-two.js)
+See [examples/demo-service/services/service-example-one.js](examples/demo-service/services/service-example-one.js) or
+[examples/demo-service/services/service-example-two.js](examples/demo-service/services/service-example-two.js)
 for examples
 
 ### `Registration` object
@@ -114,4 +114,4 @@ In order to signal the `install` sequence to wait for a `commit`, ensure that
   `commit`; The result of the promise (`resolve`, or `reject`) is disregarded.
 
 ## License
-[MIT](blob/master/LICENSE)
+[MIT](LICENSE)
