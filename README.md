@@ -4,6 +4,12 @@ A Node.js module that provides registry handling of installable components.
 Can be used for integrating modules, components, extensions, plug-ins and
   pretty much anything that requires registration with a main registry.
 
+## Installation
+
+```
+$ npm install modreg
+```
+
 ## Usage example
 
 The below example shows how `modreg` can be used to register a component.
