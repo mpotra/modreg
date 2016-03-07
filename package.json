@@ -1,0 +1,23 @@
+{
+  "name": "modreg",
+  "description": "",
+  "version": "0.0.1",
+  "author": "Mihai Potra <mike@mpotra.com>",
+  "license": "MIT",
+  "repository": "mpotra/modreg",
+  "keywords": [
+    "app",
+    "framework",
+    "services"
+  ],
+  "main": "index.js",
+  "dependencies": {
+    "debug": "^2.2.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
