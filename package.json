@@ -1,14 +1,17 @@
 {
   "name": "modreg",
-  "description": "",
+  "description": "A Node.js module that provides registry handling of installable components.",
   "version": "0.1.0",
   "author": "Mihai Potra <mike@mpotra.com>",
   "license": "MIT",
   "repository": "mpotra/modreg",
   "keywords": [
-    "app",
-    "framework",
-    "services"
+    "registry",
+    "register",
+    "components",
+    "modules",
+    "plug-ins",
+    "map"
   ],
   "main": "index.js",
   "dependencies": {
