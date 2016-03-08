@@ -117,7 +117,7 @@ By default, unless `commit()` is called after a successful `key` registration,
 
 In order to signal the `install` sequence to wait for a `commit`, ensure that
   the execution block returns a `Promise` that solves after the call to
-  `commit`; The result of the promise (`resolve`, or `reject`) is disregarded.
+  `commit`; The result of the promise (`resolve`, or `reject`) is discarded.
 
 ## License
 [MIT](LICENSE)
