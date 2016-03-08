@@ -57,6 +57,14 @@ var Manager = module.exports = function Manager(options) {
     return queuedValidation.then(() => item, () => item)
   }
 
+  // Creates a function that returns the value to pass on
+  // `register().then`
+  function acceptRequest(request, commit, cancel) {
+    return function (value) {
+      return {'key': request.key, 'commit': commit, 'cancel': cancel};
+    }
+  }
+  
   // Function that installs a module.
   manager.install = (fnInstall) => {
     var promise
@@ -73,15 +81,11 @@ var Manager = module.exports = function Manager(options) {
         var request
           , finished
           , __finish = {}
-          , registration
           , validation
           ;
         
         // Internal `request` object.
         request = {'key': key, 'value': undefined, 'locked': false}
-        
-        // An object passed on successful registration.
-        registration = request.registration = {'created': new Date(), 'key': key}
         
         // Function to commit a value, onto `key` in map.
         function commit(value) {
@@ -154,20 +158,10 @@ var Manager = module.exports = function Manager(options) {
           __finish.reject = (e) => reject(e)
         })
 
-        // Expose `commit` to the module.
-        registration.commit = (value) => {
-          return commit(value)
-        }
-        
-        // Expose `cancel` to the module.
-        registration.cancel = (error) => {
-          return cancel(error)
-        }
-
         // Create a promise that solves the register request.
         validation = validationReady({'key': key, 'value': regValue})
                             .then(registerItem)
-                            .then(() => registration)
+                            .then(acceptRequest(request, commit, cancel))
 
         // Queue the validation. If validation successful, then queue
         // after it has finished.
