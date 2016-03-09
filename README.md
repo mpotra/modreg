@@ -10,18 +10,46 @@ Can be used for integrating modules, components, extensions, plug-ins and
 $ npm install modreg
 ```
 
+## Development
+
+#### Compile ES6 to ES5 with Babel
+
+```
+$ npm run compile
+```
+
+**Compile examples**
+
+Note: Examples will be compiled under `examples/compiled` directory.
+
+```
+$ npm run compile-examples
+```
+
+#### ESLint
+
+```
+$ npm run jslint
+```
+
+**Lint examples**
+
+```
+$ npm run jslint-examples
+```
+
 ## Usage example
 
 The below example shows how `modreg` can be used to register a component.
 
 ```javascript
-var modreg = require('modreg');
+import modreg from 'modreg'
 
 // Create a manager object (component registry)
-var manager = modreg(options);
+var manager = modreg(options)
 
 // Install a component into the manager registry.
-manager.install(fnMyComponent);
+manager.install(fnMyComponent)
 
 // The function that makes registration requests to the registry.
 function fnMyComponent(register) {
@@ -29,7 +57,7 @@ function fnMyComponent(register) {
   // Use the `register` function to make requests to the registry for
   // adding component names.
   return register('my-component-name')
-          .then(reg => {
+          .then((reg) => {
             // `my-component-name` is available and successfully added
             // to the registry.
 
@@ -41,8 +69,7 @@ function fnMyComponent(register) {
             reg.commit(component);
           })
           // If the registration fails, output it to console
-          .catch(error => console.log('Failed to register:', error))
-
+          .catch((error) => console.log('Failed to register:', error))
 }
 ```
 
@@ -85,8 +112,8 @@ View example in [examples/demo-service/manager.js](examples/demo-service/manager
 
 #### Example
 ```javascript
-var manager = modreg();
-manager.install( function (register) {
+var manager = modreg()
+manager.install(function(register) {
   register(key)
 })
 ```
