@@ -17,3 +17,7 @@ Desktop.ini
 node_modules
 *.log
 *.gz
+
+# do not push compiled files via git
+lib
+examples/compiled

@@ -1,0 +1,2 @@
+# do not push source files via NPM
+src/
