@@ -32,7 +32,7 @@
     "jslint-examples": "eslint examples",
     "compile": "babel -d lib/ src/lib",
     "compile-examples": "mkdir -p examples/compiled && babel -d examples/* examples/compiled",
-    "prepublish": "npm run compile"
+    "prepublish": "npm run jslint && npm run compile"
   },
   "babel": {
     "presets": [
