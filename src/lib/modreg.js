@@ -200,6 +200,12 @@ export default function MogRed(options) {
       promise = Promise.reject(new TypeError('Argument type must be function'))
     }
     
+    // Chainable installs.
+    promise.install = (...args) => {
+      return promise.then((oldKeys) => registry.install.apply(registry, args)
+                                      .then((newKeys) => Object.assign(newKeys, oldKeys)))
+    }
+    
     return promise
   }
   
