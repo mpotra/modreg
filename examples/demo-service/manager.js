@@ -1,6 +1,6 @@
 'use strict'
 import lib_debug from 'debug'
-import modreg from '../../index'
+import modreg from 'modreg'
 
 const debug = lib_debug('demo-service')
 const map = new Map()
