@@ -110,9 +110,12 @@ The `fn` function will receive a **register** `function` argument,
 
 View example in [examples/demo-service/manager.js](examples/demo-service/manager.js#L10)
 
+Returns a `Promise`. ([updated](#chainable-installs) in `v0.1.5`)
+
 #### Example
 ```javascript
 var manager = modreg()
+
 manager.install(function(register) {
   register(key)
 })
@@ -129,6 +132,17 @@ The returned `Promise` will:
 See [examples/demo-service/services/service-example-one.js](examples/demo-service/services/service-example-one.js) or
 [examples/demo-service/services/service-example-two.js](examples/demo-service/services/service-example-two.js)
 for examples
+
+#### Chainable installs
+
+Starting with `v0.1.5`, multiple `install()` calls can be chained.
+
+```javascript
+var manager = modreg()
+
+manager.install(fnModule1).install(fnModule2)
+```
+
 
 ### `Registration` object
 
